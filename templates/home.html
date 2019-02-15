@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block content %}
+    <!-- CHECKS IF USER IS LOGGED IN -->
+    {% if user.is_authenticated %}
+        <script>
+            document.getElementById("addBlog").style.display = 'inline';
+        </script>
+        <p>Hi {{ user.username }}</p> 
+        <a href="{% url 'logout' %}" class="badge badge-warning">Log out</a>
+        <div class="dropdown-divider"></div>
+        <div class="row">
+            {%for post in object_list %}
+                <div class="card col-4 mb-3">
+                    <div class="card-body">
+                        <h4 id="contentTitle" class="card-title">
+                            <a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a>
+                        </h4>
+                        <div class="dropdown-divider"></div>
+                        <p class="card-text">{{ post.body }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You are not logged in. <br>Log in/ Sign up to view Blogs.</p>
+        <pre id="loginSignup"><a href="{% url 'login' %}" class="badge badge-warning">Log in</a> <a href="{% url 'signup' %}" class="badge badge-danger">Sign up</a></pre>
+        <div class="container">
+            <div class="row">
+                <button id="button1" type="button" class="btn btn-outline-secondary btn-lg col-lg-4">Profile</button>
+                <button id="button2" type="button" class="btn btn-outline-secondary btn-lg col-lg-4">Skills</button>
+                <button id="button3" type="button" class="btn btn-outline-secondary btn-lg col-lg-4">Character</button>
+            </div>
+            <div id="info" class="" style="float: left">
+                <img class="rounded-circle  my-3" src="{% static 'img/selfie.jpg' %}"/>
+                <label>Stephenson E. Ang</label><br>
+                <label>January 19, 1997</label><br>
+                <label>2stephensonang9@gmail.com</label><br>
+                <label>0917-6590-709</label><br>
+                <label>#1 Orchid st. Araneta Village, Potrero Malabon</label>
+                <a href="https://www.facebook.com/stephenson.ang.29"><img id="social" src="{% static 'img/facebook_logo.png' %}"/></a> <a href="https://www.instagram.com/stiph09/"><img id="social" src="{% static 'img/instagram_logo.png' %}"/></a>
+            </div>
+            <div id="Profile" style="display:none">
+                <header id="headingContent">Background</header>
+                Secondary Education
+                <p><img class="m-2" id="headingProfileImage" src="{% static 'img/hope_logo.png' %}"/>
+                HOPE CHRISTIAN HIGH SCHOOL</p><br>
+                Tertiary Education
+                <p><img class="m-2" id="headingProfileImage" src="{% static 'img/ue_logo.png' %}"/>UNIVERSITY OF THE EAST</p>
+                FYDESIGNS INC.
+                <p><a href="http://www.fydesigns.ph/"><img class="m-2" id="headingProfileImage" src="{% static 'img/fydesigns_logo.png' %}"/></a>On-the-Job Training</p>
+
+            </div>
+
+            <div id="Skills" style="display:none">
+                <header id="headingContent">Skills</header>
+                <img class="my-1 mx-2" id="headingSkillsImage" src="{% static 'img/javascript_logo.png' %}"/>
+                <img class="my-1 mx-2" id="headingSkillsImage" src="{% static 'img/django_logo.png' %}"/>
+                <img class="my-1 mx-2" id="headingSkillsImage" src="{% static 'img/python_logo.png' %}"/><br>
+                <img class="my-1 mx-2" id="headingSkillsImage" src="{% static 'img/jquery_logo.png' %}"/>
+                <img class="my-1 mx-2" id="headingSkillsImage" src="{% static 'img/bootstrap_logo.png' %}"/>
+                <img class="my-1 mx-2" id="headingSkillsImage" src="{% static 'img/java_logo.png' %}"/>
+            </div>
+
+            <div id="Character" style="display:none">
+                <header id="headingContent">Character</header>
+                <table id="table" class="text-center">
+                    <tr><th>STRENGTHS</th><th>WEAKNESSES</th></tr>
+                    <tr><td>Passionate about programming</td><td>Self-Critical</td></tr>
+                    <tr><td>Manage workload effectively</td><td>Not comfortable taking risk</td></tr>
+                    <tr><td>Flexible at work</td><td>afraid to be hated by people</td></tr>
+                    <tr><td>Respects everyone</td><td></td></tr>
+                </table>
+                
+            </div>
+        </div>
+    {% endif %}
+    <!-- END CHECKING -->
+    
+    
+{% endblock content %}

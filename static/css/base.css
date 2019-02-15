@@ -1,0 +1,71 @@
+header h1 a {
+    color: red;
+}
+#loginSignup {
+    font-size: 20px;
+}
+#contentTitle    {
+    text-align: center;
+}
+.card-text  {
+    text-overflow: clip;
+}
+footer  {
+    background-color: rgba(216, 178, 107, 0.966);
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+img {
+    height: 10em;
+    width: 10em;
+}
+#info    {
+    width: 25%;
+    height: 450px;
+    background-color: rgba(216, 178, 107, 0.966);
+    text-align: center;
+}
+#Profile    {
+    margin-left: 25%;
+    height: 450px;
+    background-color: rgb(255, 174, 0);
+    border-radius: 0 25px 0 0;
+}
+#Skills    {
+    margin-left: 25%;
+    height: 450px;
+    background-color: rgb(255, 174, 0);
+    border-radius: 0 25px 0 0;
+    text-align: center;
+}
+#headingContent {
+    text-align: center;
+    width: 100%;
+    background-color: rgb(0, 183, 255);
+    border-radius: 0 25px 0 0;
+}
+#headingProfileImage   {
+    height: 70px;
+    width: 70px;
+}
+#social {
+    height: 50px;
+    width: 50px;
+}
+#Character    {
+    margin-left: 25%;
+    height: 450px;
+    background-color: rgb(255, 174, 0);
+    border-radius: 0 25px 0 0;
+    text-align: center;
+}
+#table  {
+    margin-left: 25%;
+    height: 40px;
+    background-color: rgb(255, 174, 0);
+    border-radius: 0 25px 0 0;
+    text-align: center;
+}
